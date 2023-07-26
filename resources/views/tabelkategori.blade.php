@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>DataTables</h1>
+                        <h1>Tabel Kategori</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -35,8 +35,7 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Kode Meja</th>
-                                            <th>Status</th>
+                                            <th>Nama</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -46,7 +45,31 @@
                                             <td>Internet
                                                 Explorer 4.0
                                             </td>
-                                            <td>Win 95+</td>
+                                            <td> <a class="btn btn-info btn-sm" href="linkedin.com/bayunindioko ">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Edit
+                                                </a>
+
+                                                <a class="btn">
+                                                    <form action="https://hmif.if.itera.ac.id/adminArticle/2"
+                                                        method="POST">
+                                                        <input type="hidden" name="_token"
+                                                            value="l69MCcpN3xTeJdlxybk6AzlDbTxB3QPp0wwsqQgO"> <input
+                                                            type="hidden" name="_method" value="DELETE">
+                                                        <button class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Yakin ingin menghapus artikel ini?')">
+                                                            <i class="fas fa-trash">
+                                                            </i>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trident</td>
+                                            <td>Internet</td>
                                             <td> <a class="btn btn-info btn-sm" href="linkedin.com/bayunindioko ">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
@@ -72,74 +95,29 @@
                                         <tr>
                                             <td>Trident</td>
                                             <td>Internet
-                                                Explorer 5.0
-                                            </td>
-                                            <td>Win 95+</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Internet
                                                 Explorer 5.5
                                             </td>
-                                            <td>Win 95+</td>
-                                            <td>5.5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Internet
-                                                Explorer 6
+                                            <td> <a class="btn btn-info btn-sm" href="linkedin.com/bayunindioko ">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Edit
+                                                </a>
+
+                                                <a class="btn">
+                                                    <form action="https://hmif.if.itera.ac.id/adminArticle/2"
+                                                        method="POST">
+                                                        <input type="hidden" name="_token"
+                                                            value="l69MCcpN3xTeJdlxybk6AzlDbTxB3QPp0wwsqQgO"> <input
+                                                            type="hidden" name="_method" value="DELETE">
+                                                        <button class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Yakin ingin menghapus artikel ini?')">
+                                                            <i class="fas fa-trash">
+                                                            </i>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </a>
                                             </td>
-                                            <td>Win 98+</td>
-                                            <td>6</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 7</td>
-                                            <td>Win XP SP2+</td>
-                                            <td>7</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Trident</td>
-                                            <td>AOL browser (AOL desktop)</td>
-                                            <td>Win XP</td>
-                                            <td>6</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gecko</td>
-                                            <td>Firefox 1.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.7</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gecko</td>
-                                            <td>Firefox 1.5</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gecko</td>
-                                            <td>Firefox 2.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gecko</td>
-                                            <td>Firefox 3.0</td>
-                                            <td>Win 2k+ / OSX.3+</td>
-                                            <td>1.9</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gecko</td>
-                                            <td>Camino 1.0</td>
-                                            <td>OSX.2+</td>
-                                            <td>1.8</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gecko</td>
-                                            <td>Camino 1.5</td>
-                                            <td>OSX.3+</td>
-                                            <td>1.8</td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
