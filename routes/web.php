@@ -21,8 +21,11 @@ Route::get('/homepage', [UserController::class, 'homepage'])->name('homepage');
 Route::get('/items', [ItemController::class, 'index'])->name('items');
 
 Route::get('/tables', [TableController::class, 'index'])->name('tables');
+Route::get('/tables/create', [TableController::class, 'create'])->name('create_table');
+Route::post('/tables/create_process', [TableController::class, 'create_process'])->name('create_table_process');
 Route::get('/tables/{id}', [TableController::class, 'detail'])->name('tables/');
 Route::post('/tables_process/{id}', [TableController::class, 'table_process'])->name('tables_process/');
+Route::get('/tables/{id}/delete', [TableController::class, 'delete'])->name('tables/delete/');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('/users', [UserController::class, 'index'])->name('users');

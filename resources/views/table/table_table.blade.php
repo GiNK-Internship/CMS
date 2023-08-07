@@ -26,6 +26,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="row justify-content-md-end pr-4 pt-4">
+                            <a href="{{ route('create_table') }}">
+                                <button type="button" class="btn btn-primary btn-block"><i class="fa fa-plus"></i>
+                                    Tambah Baru</button>
+                            </a>
+                        </div>
                         <div class="card-header">
                             <h3 class="card-title">Tabel Meja</h3>
                         </div>
@@ -54,7 +60,8 @@
                                                 <i class="fas fa-pencil-alt"></i>
                                                 Edit
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href=""
+                                            <a class="btn btn-danger btn-sm"
+                                                href="{{ route('tables/delete/', $table['id']) }}"
                                                 onclick="return confirm('Yakin ingin menghapus artikel ini?')">
                                                 <i class="fas fa-trash"></i>
                                                 Delete

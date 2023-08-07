@@ -15,6 +15,23 @@ class TableController extends Controller
         return view('table.table_table', ['data' => $data]);
     }
 
+    public function create()
+    {
+        return view('table.table_create');
+    }
+
+    public function create_process(Request $request)
+    {
+        $response = Http::post('http://192.168.1.111:8000/api/tables', $request->all());
+        $data = $response->json();
+
+        if ($response->successful()) {
+            return redirect()->route('tables')->with('success', 'Data meja berhasil diperbarui.');
+        } else {
+            return redirect()->back()->with('error', 'Gagal memperbarui data meja. Silakan coba lagi.');
+        }
+    }
+
     public function detail($id)
     {
         $response = Http::get('http://192.168.1.111:8000/api/tables/' . $id . '/detail');
@@ -32,6 +49,17 @@ class TableController extends Controller
         ];
 
         $response = Http::patch($endpoint, $data);
+
+        if ($response->successful()) {
+            return redirect()->route('tables')->with('success', 'Data meja berhasil diperbarui.');
+        } else {
+            return redirect()->back()->with('error', 'Gagal memperbarui data meja. Silakan coba lagi.');
+        }
+    }
+
+    public function delete($id)
+    {
+        $response = Http::delete('http://192.168.1.111:8000/api/tables/' . $id);
 
         if ($response->successful()) {
             return redirect()->route('tables')->with('success', 'Data meja berhasil diperbarui.');
