@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/homepage', [UserController::class, 'homepage'])->name('homepage');
+
 Route::get('/items', [ItemController::class, 'index'])->name('items');
+Route::get('/items/create', [ItemController::class, 'create'])->name('create_items');
+Route::post('/items/create_process', [ItemController::class, 'create_process'])->name('create_items_process');
+Route::get('/items/{id}', [ItemController::class, 'detail'])->name('items/');
+Route::post('/items_process/{id}', [ItemController::class, 'item_process'])->name('items_process/');
+Route::get('/items/{id}/delete', [ItemController::class, 'delete'])->name('items/delete/');
 
 Route::get('/tables', [TableController::class, 'index'])->name('tables');
 Route::get('/tables/create', [TableController::class, 'create'])->name('create_table');

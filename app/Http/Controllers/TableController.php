@@ -9,7 +9,7 @@ class TableController extends Controller
 {
     public function index()
     {
-        $response = Http::get('http://192.168.1.111:8000/api/tables');
+        $response = Http::get('http://192.168.1.113:8000/api/tables');
         $data = $response->json();
 
         return view('table.table_table', ['data' => $data]);
@@ -22,7 +22,7 @@ class TableController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://192.168.1.111:8000/api/tables', $request->all());
+        $response = Http::post('http://192.168.1.113:8000/api/tables', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -34,14 +34,14 @@ class TableController extends Controller
 
     public function detail($id)
     {
-        $response = Http::get('http://192.168.1.111:8000/api/tables/' . $id . '/detail');
+        $response = Http::get('http://192.168.1.113:8000/api/tables/' . $id . '/detail');
         $data = $response->json();
         return view('table.table_detail', ['data' => $data]);
     }
 
     public function table_process($id, Request $request)
     {
-        $endpoint = 'http://192.168.1.111:8000/api/tables/' . $id;
+        $endpoint = 'http://192.168.1.113:8000/api/tables/' . $id;
 
         $data = [
             'number' => $request->input('number'),
@@ -59,7 +59,7 @@ class TableController extends Controller
 
     public function delete($id)
     {
-        $response = Http::delete('http://192.168.1.111:8000/api/tables/' . $id);
+        $response = Http::delete('http://192.168.1.113:8000/api/tables/' . $id);
 
         if ($response->successful()) {
             return redirect()->route('tables')->with('success', 'Data meja berhasil diperbarui.');

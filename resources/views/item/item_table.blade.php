@@ -26,6 +26,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="row justify-content-md-end pr-4 pt-4">
+                            <a href="{{ route('create_items') }}">
+                                <button type="button" class="btn btn-primary btn-block"><i class="fa fa-plus"></i>
+                                    Tambah Baru</button>
+                            </a>
+                        </div>
                         <div class="card-header">
                             <h3 class="card-title">Table Item</h3>
                         </div>

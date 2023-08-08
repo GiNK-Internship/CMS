@@ -9,9 +9,9 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $response = Http::get('http://192.168.1.111:8000/api/categories');
+        $response = Http::get('http://192.168.1.113:8000/api/categories');
         $data = $response->json();
 
-        return view('category_table', ['data' => $data]);
+        return view('category.category_table', ['data' => $data]);
     }
 }
