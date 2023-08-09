@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $response = Http::get('http://192.168.1.113:8000/api/categories');
+        $response = Http::get('http://192.168.1.110:8000/api/categories');
         $data = $response->json();
 
         return view('category.category_table', ['data' => $data]);
@@ -22,7 +22,7 @@ class CategoryController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://192.168.1.113:8000/api/categories', $request->all());
+        $response = Http::post('http://192.168.1.110:8000/api/categories', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -34,14 +34,14 @@ class CategoryController extends Controller
 
     public function detail($id)
     {
-        $response = Http::get('http://192.168.1.113:8000/api/categories/' . $id);
+        $response = Http::get('http://192.168.1.110:8000/api/categories/' . $id);
         $data = $response->json();
         return view('category.category_detail', ['data' => $data]);
     }
 
     public function category_process($id, Request $request)
     {
-        $endpoint = 'http://192.168.1.113:8000/api/categories/' . $id;
+        $endpoint = 'http://192.168.1.110:8000/api/categories/' . $id;
 
         $data = [
             'name' => $request->input('name')
@@ -58,7 +58,7 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-        $response = Http::delete('http://192.168.1.113:8000/api/categories/' . $id);
+        $response = Http::delete('http://192.168.1.110:8000/api/categories/' . $id);
 
         if ($response->successful()) {
             return redirect()->route('categories')->with('success', 'Data category berhasil diperbarui.');

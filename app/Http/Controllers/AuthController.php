@@ -19,7 +19,7 @@ class AuthController extends Controller
             'password'  => 'required',
         ]);
 
-        $response = Http::post('http://192.168.1.113:8000/api/users/login', $request->all());
+        $response = Http::post('http://192.168.1.110:8000/api/users/login', $request->all());
 
         if ($response->successful()) {
             session()->put(['token' => $response['data']['access_token']]);

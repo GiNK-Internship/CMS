@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $response = Http::get('http://192.168.1.113:8000/api/users');
+        $response = Http::get('http://192.168.1.110:8000/api/users');
         $data = $response->json();
 
         return view('user.user_table', ['data' => $data]);
@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://192.168.1.113:8000/api/users', $request->all());
+        $response = Http::post('http://192.168.1.110:8000/api/users', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -34,14 +34,14 @@ class UserController extends Controller
 
     public function detail($id)
     {
-        $response = Http::get('http://192.168.1.113:8000/api/users/' . $id);
+        $response = Http::get('http://192.168.1.110:8000/api/users/' . $id);
         $data = $response->json();
         return view('user.user_detail', ['data' => $data]);
     }
 
     public function user_process($id, Request $request)
     {
-        $endpoint = 'http://192.168.1.113:8000/api/users/' . $id;
+        $endpoint = 'http://192.168.1.110:8000/api/users/' . $id;
 
         $data = [
             'name' => $request->input('name'),
@@ -60,7 +60,7 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $response = Http::delete('http://192.168.1.113:8000/api/users/' . $id);
+        $response = Http::delete('http://192.168.1.110:8000/api/users/' . $id);
 
         if ($response->successful()) {
             return redirect()->route('users')->with('success', 'Data user berhasil diperbarui.');
