@@ -10,18 +10,17 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{asset('template/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- DataTables -->
-    <link rel="stylesheet" href="{{asset('template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
-        href="{{asset('template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{asset('template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+        href="{{ asset('template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('template/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
     <!-- Select2 -->
-    <link rel="stylesheet" href="{{asset('template/plugins/select2/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{asset('template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('template/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -31,7 +30,8 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
@@ -141,29 +141,29 @@
             <!-- /.sidebar -->
         </aside>
 
-        @yield('content')
 
 
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <!-- jQuery -->
-        <script src="{{asset ('template/plugins/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/jquery/jquery.min.js') }}"></script>
         <!-- Bootstrap 4 -->
-        <script src="{{asset ('template/plugins/bootstrap/js/bootstrap.bundle.min.js')}}'"></script>
+        <script src="{{ asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}'"></script>
         <!-- DataTables  & Plugins -->
-        <script src="{{asset ('template/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/jszip/jszip.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/pdfmake/pdfmake.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/pdfmake/vfs_fonts.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
-        <script src="{{asset ('template/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+        <script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/jszip/jszip.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/pdfmake/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/pdfmake/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('template/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
         <!-- AdminLTE App -->
-        <script src="{{asset ('template/dist/js/adminlte.min.js')}}"></script>
+        <script src="{{ asset('template/dist/js/adminlte.min.js') }}"></script>
+
+        @yield('content')
 
         <!-- Page specific script -->
         <script>
