@@ -62,11 +62,12 @@
                                         <td>Rp. {{ $item['price'] }}</td>
                                         <td>{{ $item['status'] }}</td>
                                         <td>
-                                            <a class="btn btn-info btn-sm" href="">
+                                            <a class="btn btn-info btn-sm" href="{{ route('items/', $item['id']) }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                                 Edit
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href=""
+                                            <a class="btn btn-danger btn-sm"
+                                                href="{{ route('items/delete/', $item['id']) }}"
                                                 onclick="return confirm('Yakin ingin menghapus artikel ini?')">
                                                 <i class="fas fa-trash"></i>
                                                 Delete

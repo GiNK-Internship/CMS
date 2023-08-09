@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{asset('template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('template/dist/css/adminlte.min.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('template/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{asset('template/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -140,6 +144,7 @@
         @yield('content')
 
 
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <!-- jQuery -->
         <script src="{{asset ('template/plugins/jquery/jquery.min.js') }}"></script>
         <!-- Bootstrap 4 -->

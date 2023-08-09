@@ -34,14 +34,14 @@ class ItemController extends Controller
 
     public function detail($id)
     {
-        $response = Http::get('http://192.168.1.113:8000/api/tables/' . $id . '/detail');
+        $response = Http::get('http://192.168.1.113:8000/api/items/' . $id);
         $data = $response->json();
-        return view('table.table_detail', ['data' => $data]);
+        return view('item.item_detail', ['data' => $data]);
     }
 
-    public function table_process($id, Request $request)
+    public function item_process($id, Request $request)
     {
-        $endpoint = 'http://192.168.1.113:8000/api/tables/' . $id;
+        $endpoint = 'http://192.168.1.113:8000/api/items/' . $id;
 
         $data = [
             'number' => $request->input('number'),

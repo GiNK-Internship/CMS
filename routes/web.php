@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AuthController::class, 'index'])->name('/');
+Route::post('/login_process', [AuthController::class, 'login_process'])->name('login-process');
 
 Route::get('/homepage', [UserController::class, 'homepage'])->name('homepage');
 
@@ -37,4 +38,15 @@ Route::post('/tables_process/{id}', [TableController::class, 'table_process'])->
 Route::get('/tables/{id}/delete', [TableController::class, 'delete'])->name('tables/delete/');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('create_category');
+Route::post('/categories/create_process', [CategoryController::class, 'create_process'])->name('create_category_process');
+Route::get('/categories/{id}', [CategoryController::class, 'detail'])->name('categories/');
+Route::post('/categories_process/{id}', [CategoryController::class, 'category_process'])->name('categories_process/');
+Route::get('/categories/{id}/delete', [CategoryController::class, 'delete'])->name('categories/delete/');
+
 Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/users/create', [UserController::class, 'create'])->name('create_user');
+Route::post('/users/create_process', [UserController::class, 'create_process'])->name('create_user_process');
+Route::get('/users/{id}', [UserController::class, 'detail'])->name('users/');
+Route::post('/users_process/{id}', [UserController::class, 'user_process'])->name('users_process/');
+Route::get('/users/{id}/delete', [UserController::class, 'delete'])->name('users/delete/');
