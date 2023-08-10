@@ -9,7 +9,12 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('login');
+        $token = session('bearer_token');
+        if (!$token) {
+            return view('login');
+        } else {
+            return redirect('homepage');
+        }
     }
 
     public function login_process(Request $request)
@@ -19,11 +24,26 @@ class AuthController extends Controller
             'password'  => 'required',
         ]);
 
-        $response = Http::post('http://192.168.1.110:8000/api/users/login', $request->all());
+        $response = Http::post('http://192.168.1.105:8000/api/users/login', $request->all());
 
-        if ($response->successful()) {
-            session()->put(['token' => $response['data']['access_token']]);
+        session(['bearer_token' => $response['data']['access_token']]);
+
+        if ($response['status'] == 'success') {
+            return redirect('homepage');
         } else {
+            return back()->withErrors(['login' => 'Login gagal. Silakan cek kembali email dan password Anda.']);
         }
+    }
+
+    public function logout()
+    {
+        $token = session('bearer_token');
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $token,
+        ])->get('http://192.168.1.105:8000/api/users/logout');
+        session()->forget('bearer_token');
+
+        return redirect('');
     }
 }

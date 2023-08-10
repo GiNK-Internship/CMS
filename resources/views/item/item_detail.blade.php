@@ -1,6 +1,18 @@
 @extends('sidebar')
 
 @section('content')
+<style>
+    .select2-container .select2-selection .select2-selection__choice {
+        background-color: #007bff;
+        color: #fff;
+        border: 1px solid #007bff;
+    }
+
+    .select2-container .select2-selection .select2-selection__choice:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+</style>
 <div class="content-wrapper" style="min-height: 541px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -48,38 +60,15 @@
                                     <small>Maximal 255 characters</small>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="photo1">Photo</label>
-                                    <div class="file-input file-input-new">
-                                        <div class="kv-upload-progress kv-hidden" style="display: none;">
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success progress-bar-success progress-bar-striped active progress-bar-animated"
-                                                    role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width: 0%;">
-                                                    0%
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <div class="file-caption">
-                                            <div class="input-group ">
-                                                <input readonly=""
-                                                    class="file-caption-name form-control kv-fileinput-caption"
-                                                    placeholder="Select file ..." title="">
+                                {{-- <img width="300px" name="file" id="itemImage" src="{{ $data['foto'] }}">
 
-                                                <span class="file-caption-icon"></span>
-                                                <div class="input-group-btn input-group-append">
-                                                    <div class="btn btn-primary btn-file" tabindex="500"><i
-                                                            class="bi-folder2-open"></i> <span class="hidden-xs">Browse
-                                                            …</span><input id="photo1" name="photo1" value=""
-                                                            type="file" class="file custom-file-label"
-                                                            data-show-preview="false" accept=".jpg, .jpeg, .png"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="form-group">
+                                    <label for="file">File input</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" name="file" required
+                                            onchange="previewImage(this);" />
                                     </div>
-                                    <small>Masukkan gambar berekstensi jpg/jpeg/png dan berukuran &lt; 2MB</small>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="price">Price <small class="text-danger">*</small></label>
@@ -87,28 +76,38 @@
                                         placeholder="Input Item Price" value="{{ $data['price'] }}" maxlength="255">
                                     <small>Maximal 255 characters</small>
                                 </div>
-                                <div class="form-group" data-select2-id="97">
-                                    <label>Status</label>
-                                    <select class="form-control select2 select2-accessible" style="width: 100%;"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option selected="selected" value="{{ $data['status'] }}" data-select2-id="3">
-                                            {{ $data['status'] }}</option>
-                                        <option value="Berisi" data-select2-id="47">Ready</option>
-                                        <option value="Kosong" data-select2-id="47">Kosong</option>
-                                    </select>
+                                <div class="form-group">
+                                    <label for="status">Status <small class="text-danger">*</small></label>
+                                    <div class="input-group mb-3">
+                                        <select name="status" class="custom-select" id="status">
+                                            <option selected="selected" value="{{ $data['status'] }}">
+                                                {{ $data['status'] }}</option>
+                                            <option value="Ready" selected="">Ready</option>
+                                            <option value="Kosong">Kosong</option>
+                                        </select>
+                                    </div>
                                 </div>
 
+                                @php
+                                $selectedCategoryIds = collect($data['categories'])->pluck('id')->toArray();
+                                @endphp
                                 <div class="form-group">
-                                    <label>Minimal</label>
-                                    <select class="form-control select2" style="width: 100%" multiple="multiple"
-                                        name="minimals[]">
-                                        <option selected="selected">Alabama</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                    <label>Category</label>
+                                    <select name="category_ids[]" class="select2" multiple="multiple"
+                                        data-placeholder="Select a Category" style="width: 100%;">
+                                        @foreach($selectedCategoryIds as $selectedCategoryId)
+                                        @php
+                                        $selectedCategory = collect($data['categories'])->firstWhere('id',
+                                        $selectedCategoryId);
+                                        @endphp
+                                        <option value="{{ $selectedCategory['id'] }}" selected>{{
+                                            $selectedCategory['name'] }}</option>
+                                        @endforeach
+                                        @foreach($dataCat as $category)
+                                        @unless(in_array($category['id'], $selectedCategoryIds))
+                                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                                        @endunless
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -132,4 +131,40 @@
 
 <!-- /.content -->
 </div>
+<script src="{{ asset('template/plugins/select2/js/select2.full.min.js') }}"></script>
+<script>
+    $(function() {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+        });
+
+</script>
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#itemImage').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        });
+    });
+</script>
 @endsection

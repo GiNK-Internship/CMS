@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'index'])->name('/');
 Route::post('/login_process', [AuthController::class, 'login_process'])->name('login-process');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/homepage', [UserController::class, 'homepage'])->name('homepage');
 
