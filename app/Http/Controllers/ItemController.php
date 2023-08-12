@@ -13,7 +13,7 @@ class ItemController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://192.168.1.105:8000/api/items');
+            $response = Http::get('http://192.168.1.109:8000/api/items');
             $data = $response->json();
 
             return view('item.item_table', ['data' => $data]);
@@ -26,7 +26,7 @@ class ItemController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://192.168.1.105:8000/api/categories');
+            $response = Http::get('http://192.168.1.109:8000/api/categories');
             $data = $response->json();
             return view('item.item_create', ['data' => $data]);
         }
@@ -35,7 +35,7 @@ class ItemController extends Controller
     public function create_process(Request $request)
     {
         $request['file'] = $request->file('file');
-        $response = Http::post('http://192.168.1.105:8000/api/items', $request->all());
+        $response = Http::post('http://192.168.1.109:8000/api/items', $request->all());
         $data = $response->json();
 
         return $request;
@@ -47,9 +47,9 @@ class ItemController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://192.168.1.105:8000/api/items/' . $id);
+            $response = Http::get('http://192.168.1.109:8000/api/items/' . $id);
             $data = $response->json();
-            $responseCat = Http::get('http://192.168.1.105:8000/api/categories/');
+            $responseCat = Http::get('http://192.168.1.109:8000/api/categories/');
             $dataCat = $responseCat->json();
             return view('item.item_detail', ['data' => $data, 'dataCat' => $dataCat]);
         }
@@ -57,7 +57,7 @@ class ItemController extends Controller
 
     public function item_process($id, Request $request)
     {
-        $endpoint = 'http://192.168.1.105:8000/api/items/' . $id;
+        $endpoint = 'http://192.168.1.109:8000/api/items/' . $id;
 
         $response = Http::patch($endpoint, $request);
 
@@ -74,7 +74,7 @@ class ItemController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://192.168.1.105:8000/api/tables/' . $id);
+            $response = Http::delete('http://192.168.1.109:8000/api/tables/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('items')->with('success', 'Data meja berhasil diperbarui.');

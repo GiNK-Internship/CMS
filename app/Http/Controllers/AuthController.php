@@ -24,7 +24,7 @@ class AuthController extends Controller
             'password'  => 'required',
         ]);
 
-        $response = Http::post('http://192.168.1.105:8000/api/users/login', $request->all());
+        $response = Http::post('http://192.168.1.109:8000/api/users/login', $request->all());
 
         session(['bearer_token' => $response['data']['access_token']]);
 
@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $token,
-        ])->get('http://192.168.1.105:8000/api/users/logout');
+        ])->get('http://192.168.1.109:8000/api/users/logout');
         session()->forget('bearer_token');
 
         return redirect('');

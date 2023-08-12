@@ -125,17 +125,16 @@
 </script>
 <script>
     $(function() {
-        // Tangkap form saat disubmit
         $('#create-item-form').submit(function(event) {
-            event.preventDefault(); // Mencegah form submit secara default
+            event.preventDefault();
 
             var form = $(this);
-            var url = 'http://192.168.1.105:8000/api/items'; // URL API
+            var url = 'http://192.168.1.109:8000/api/items';
 
-            // Ambil data dari form
+
             var formData = new FormData(form[0]);
 
-            // Kirim permintaan POST ke API
+
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -143,12 +142,12 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    // Berhasil, Anda bisa menambahkan logika atau tindakan lainnya di sini
+
                     console.log('Data berhasil dikirim:', response);
                     window.location.href = '/items';
                 },
                 error: function(xhr, status, error) {
-                    // Terjadi kesalahan, Anda bisa menambahkan logika atau tindakan lainnya di sini
+
                     console.error('Terjadi kesalahan:', error);
                 }
             });

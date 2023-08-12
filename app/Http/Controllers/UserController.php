@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $token = session('bearer_token');
 
-        $response = Http::get('http://192.168.1.105:8000/api/users');
+        $response = Http::get('http://192.168.1.109:8000/api/users');
         $data = $response->json();
 
         if (!$token) {
@@ -33,7 +33,7 @@ class UserController extends Controller
 
     public function create_process(Request $request)
     {
-        $response = Http::post('http://192.168.1.105:8000/api/users', $request->all());
+        $response = Http::post('http://192.168.1.109:8000/api/users', $request->all());
         $data = $response->json();
 
         if ($response->successful()) {
@@ -49,7 +49,7 @@ class UserController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::get('http://192.168.1.105:8000/api/users/' . $id);
+            $response = Http::get('http://192.168.1.109:8000/api/users/' . $id);
             $data = $response->json();
             return view('user.user_detail', ['data' => $data]);
         }
@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function user_process($id, Request $request)
     {
-        $endpoint = 'http://192.168.1.105:8000/api/users/' . $id;
+        $endpoint = 'http://192.168.1.109:8000/api/users/' . $id;
 
         $data = [
             'name' => $request->input('name'),
@@ -80,7 +80,7 @@ class UserController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $response = Http::delete('http://192.168.1.105:8000/api/users/' . $id);
+            $response = Http::delete('http://192.168.1.109:8000/api/users/' . $id);
 
             if ($response->successful()) {
                 return redirect()->route('users')->with('success', 'Data user berhasil diperbarui.');
@@ -96,16 +96,16 @@ class UserController extends Controller
         if (!$token) {
             return redirect('');
         } else {
-            $responseCat = Http::get('http://192.168.1.105:8000/api/categories');
+            $responseCat = Http::get('http://192.168.1.109:8000/api/categories');
             $dataCat = count($responseCat->json());
 
-            $responseItem = Http::get('http://192.168.1.105:8000/api/items');
+            $responseItem = Http::get('http://192.168.1.109:8000/api/items');
             $dataItem = count($responseItem->json());
 
-            $responseTab = Http::get('http://192.168.1.105:8000/api/tables');
+            $responseTab = Http::get('http://192.168.1.109:8000/api/tables');
             $dataTab = count($responseTab->json());
 
-            $responseUser = Http::get('http://192.168.1.105:8000/api/users');
+            $responseUser = Http::get('http://192.168.1.109:8000/api/users');
             $dataUser = count($responseUser->json());
             return view(
                 'homepage',
